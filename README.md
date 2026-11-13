@@ -1,0 +1,20 @@
+# base-de-scrip
+import mysql.connector
+
+# Configuración de la conexión
+conexion = mysql.connector.connect(
+    host="localhost",
+    user="tu_usuario",
+    password="tu_contraseña",
+    database="mi_tienda"
+)
+
+# Crear un cursor para ejecutar scripts SQL
+cursor = conexion.cursor()
+cursor.execute("SELECT * FROM Clientes")
+
+# Imprimir resultados
+for fila in cursor.fetchall():
+    print(fila)
+
+conexion.close()
